@@ -24,7 +24,7 @@ app.use(createCookie)
 app.use(setHeaders);
 
 app.use(cors({
-    origin: "https://cierusic.vercel.app/",
+    origin: "https://cierusic.vercel.app",
   }));
 
 app.use(userRoutes, songRoutes, playlistRoutes, cloudRoutes);
