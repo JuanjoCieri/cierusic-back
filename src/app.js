@@ -25,7 +25,7 @@ app.use(createCookie)
 app.use(setHeaders);
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://cierusic-back-production.up.railway.app/",
   }));
 
 app.use(userRoutes, songRoutes, playlistRoutes, cloudRoutes);
