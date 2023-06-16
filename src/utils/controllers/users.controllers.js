@@ -74,8 +74,14 @@ export const postUserLogin = async (req, res) => {
         res.cookie("session", token, {
           expires: new Date(Date.now() + 9999999),
           httpOnly: true,
+          sameSite: "none",
+          secure: true,
         });
-        res.cookie("res_sess", "1");
+        res.cookie("res_sess", "1", {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+        });
         res.status(200).json({ user, token });
       } else {
         res.status(400).json({ error: "Incorrect password" });
