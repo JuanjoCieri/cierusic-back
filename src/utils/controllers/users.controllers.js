@@ -60,7 +60,6 @@ export const postUserRegister = async (req, res) => {
 
 export const postUserLogin = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password)
   try {
     const user = db.collection("users");
     const doc = await user.where("email", "==", email).get();
@@ -70,14 +69,11 @@ export const postUserLogin = async (req, res) => {
       const firstDoc = doc.docs[0];
       const match = await bcrypt.compare(password, firstDoc.data().password);
       if (match) {
-        console.log("Entré")
         const userId = firstDoc.id;
         const token = jwt.sign({ id: userId }, process.env.JWT_KEY);
         res.cookie("session", token, {
           expires: new Date(Date.now() + 9999999),
           httpOnly: true,
-          sameSite: "none",
-          secure: true
         });
         res.cookie("res_sess", "1");
         res.status(200).json({ user, token });
@@ -86,7 +82,6 @@ export const postUserLogin = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log("que pasó:", error)
     res.status(500).json({ error: "An error occurred" });
   }
 };
