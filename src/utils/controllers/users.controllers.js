@@ -74,6 +74,7 @@ export const postUserLogin = async (req, res) => {
         res.cookie("session", token, {
           expires: new Date(Date.now() + 9999999),
           httpOnly: true,
+          sameSite: "none"
         });
         res.cookie("res_sess", "1");
         res.status(200).json({ user, token });
