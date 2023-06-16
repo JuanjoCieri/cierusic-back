@@ -4,11 +4,13 @@
   "type": "module",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
-    "vercel-build": "echo hello"
+    "start": "node src/index.js"
   },
   "author": "JuanjoCieri",
   "license": "ISC",
