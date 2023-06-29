@@ -98,6 +98,7 @@ export const postSong = async (req, res) => {
       });
 
       const userRef = db.collection("users").doc(artistId);
+      console.log(songRef)
       await userRef.update({
         songs: firebase.firestore.FieldValue.arrayUnion(songRef.id)
       });
