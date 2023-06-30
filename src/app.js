@@ -26,7 +26,7 @@ app.use(setHeaders);
 app.use(
   cors({
     credentials: true,
-    origin: "*",
+    origin: "http://localhost:5173/",
     withCredentials: true
   })
 );
