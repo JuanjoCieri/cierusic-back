@@ -4,7 +4,7 @@ import admin from 'firebase-admin';
 dotenv.config();
 
 admin.initializeApp({
-  credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_CONFIG)),
+  credential: admin.credential.applicationDefault(),
   storageBucket: 'cierusi.appspot.com'
 });
 
