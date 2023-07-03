@@ -26,7 +26,7 @@ app.use(setHeaders);
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://cierusic.vercel.app",
     withCredentials: true
   })
 );

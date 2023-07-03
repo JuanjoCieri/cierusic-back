@@ -47,7 +47,6 @@ export const getForYouPlaylist = async (req, res) => {
 
 export const postCreatePlaylist = async (req, res) => {
   let { userId, userName, name, image, desc } = req.body;
-  console.log(userId, userName)
   const time = Date.now();
   const now = new Date(time);
   try {

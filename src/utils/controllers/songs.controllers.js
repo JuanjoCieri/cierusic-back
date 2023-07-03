@@ -86,7 +86,7 @@ export const postSong = async (req, res) => {
       });
 
       const songRef = db.collection("songs").doc();
-      await songRef.set({
+      const songId = await songRef.set({
         name,
         image: image ? image : "",
         artist: [artist, artistId],
@@ -97,11 +97,18 @@ export const postSong = async (req, res) => {
         fileUrl: downloadUrl,
       });
 
-      const userRef = db.collection("users").doc(artistId);
-      console.log(songRef)
-      await userRef.update({
-        songs: firebase.firestore.FieldValue.arrayUnion(songRef.id)
-      });
+    //   const userRef = db.collection("users").doc(artistId);
+    // const userDoc = await userRef.get();
+
+    // const userSongs = userDoc.data().songs || [];
+    // userSongs.push(songId);
+
+    // await userRef.update({ songs: userPlaylists });
+
+      // const userRef = db.collection("users").doc(artistId);
+      // await userRef.update({
+      //   songs: admin.firestore.FieldValue.arrayUnion(songRef.id)
+      // });
 
       res.send("Canción subida exitosamente.");
     });
